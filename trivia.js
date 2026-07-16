@@ -11,8 +11,9 @@ let userName;
 
 rl.question(`Enter Name: `, (answer) => {
   userName = answer;
-  console.log(`Welcome, ${answer}`);
-  rl.close();
+  console.log(`\nWelcome, ${answer}\n`);
+  // Starting The CLI
+  startGame();
 });
 
 // Questions
@@ -59,5 +60,51 @@ function askQuestion() {
   timer = setTimeout(() => {
     console.log("\n Times Up!");
     console.log(`Correct answer: ${trivia.answer}\n`);
+
+    currentQuestion++;
+    askQuestion();
+  }, 10000);
+
+  rl.question("Your answer: ", (userAnswer) => {
+    clearTimeout(timer);
+
+    checkAnswer(userAnswer);
+
+    currentQuestion++;
+    askQuestion();
   });
+}
+
+// Answer check
+function checkAnswer(userAnswer) {
+  const correctAnswer = questions[currentQuestion].answer;
+
+  const userAnswers = userAnswer
+    .toLowerCase()
+    .split(",")
+    .map((answer) => answer.trim());
+
+  const correctAnswers = correctAnswer
+    .toLowerCase()
+    .split(",")
+    .map((answer) => answer.trim());
+
+  const isCorrect = correctAnswers.every((answer) =>
+    userAnswers.includes(answer),
+  );
+
+  if (isCorrect) {
+    console.log("Correct!\n");
+    score++;
+  } else {
+    console.log(`Wrong! The correct answer was: ${correctAnswer}\n`);
+  }
+}
+
+// results
+function endGame() {
+  console.log(`Thank you ${userName} for playing`);
+  console.log(`You scored: ${score}/${questions.length}`);
+
+  rl.close();
 }
