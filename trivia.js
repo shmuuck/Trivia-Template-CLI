@@ -21,7 +21,7 @@ rl.question(`Enter Name: `, (answer) => {
 const questions = [
   {
     question: "What keyword declares a variable in java?",
-    answer: "let",
+    answer: ["let"],
   },
   {
     question:
@@ -30,7 +30,7 @@ const questions = [
   },
   {
     question: "what does CSS stand for?",
-    answer: "cascading style sheets",
+    answer: ["cascading style sheets"],
   },
 ];
 
@@ -63,7 +63,7 @@ function askQuestion() {
 
     currentQuestion++;
     askQuestion();
-  }, 10000);
+  }, 30000);
 
   rl.question("Your answer: ", (userAnswer) => {
     clearTimeout(timer);
@@ -84,10 +84,9 @@ function checkAnswer(userAnswer) {
     .split(",")
     .map((answer) => answer.trim());
 
-  const correctAnswers = correctAnswer
-    .toLowerCase()
-    .split(",")
-    .map((answer) => answer.trim());
+  const correctAnswers = correctAnswer.map((answer) =>
+    answer.toLowerCase().trim(),
+  );
 
   const isCorrect = correctAnswers.every((answer) =>
     userAnswers.includes(answer),
