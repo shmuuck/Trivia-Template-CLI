@@ -7,8 +7,8 @@ A simple CLI trivia game for a certain lab.
 - Asks for your name
 - Gives you a welcome
 - Logs user input
-- Answers in array format to allow variance
-- Supports multiple answers
+- Answers to multiple-answer questions can be split by commas allow variance
+- Supports multiple-answer questions
 - Works with NodeJS no browser tests done
 - Easy question implementation found in./src/questions.json, since it is json then no need for JS knowledge
 
@@ -22,6 +22,7 @@ A simple CLI trivia game for a certain lab.
 
 ## In the works
 
+- Multiple-choice questions yet to be implimented
 - Custom looks using chalk
 - Animations using chalk-animation and more
 - Better comments
