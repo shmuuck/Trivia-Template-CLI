@@ -7,5 +7,10 @@ A simple CLI trivia game for a certain lab.
 * Answers in array format to allow variance
 * Supports multiple answers
 * Works with NodeJS no browser tests done
-#### This was quite fun : )
-##### Time was short so no ASCII
+## In the works
+* Custom looks using chalk
+* Animations
+* Better comments
+* etc.
+
+### Might make this a Template repo
