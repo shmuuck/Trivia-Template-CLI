@@ -1,0 +1,17 @@
+[
+  {
+    "question": "What keyword declares a variable in java?",
+    "answer": ["let"],
+    "match": "all"
+  },
+  {
+    "question": "what two operators are represented by the following syntax (...)?",
+    "answer": ["rest", "spread"],
+    "match": "all"
+  },
+  {
+    "question": "what is 1+1",
+    "answer": ["2", "two", "II"],
+    "match": "any"
+  }
+]

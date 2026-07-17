@@ -1,0 +1,29 @@
+{
+  "name": "trivia-template-cli",
+  "version": "1.0.0",
+  "description": "A simple CLI trivia game for a certain lab. ## Functions * Asks for your name * Gives you a welcome * Logs user input * Answers in array format to allow variance * Supports multiple answers * Works with NodeJS no browser tests done ## In the works * Custom looks using chalk * Animations * Better comments * etc.",
+  "main": "trivia.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shmuuck/Trivia-Template-CLI.git"
+  },
+  "keywords": [],
+  "author": "Shmuuck",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/shmuuck/Trivia-Template-CLI/issues"
+  },
+  "homepage": "https://github.com/shmuuck/Trivia-Template-CLI#readme",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "chalk-animation": "^2.0.3",
+    "figlet": "^1.11.2",
+    "gradient-string": "^3.0.0",
+    "inquirer": "^14.0.2",
+    "nanospinner": "^1.2.2"
+  }
+}
