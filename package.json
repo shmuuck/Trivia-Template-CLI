@@ -4,6 +4,7 @@
   "description": "A simple CLI trivia game for a certain lab. ## Functions * Asks for your name * Gives you a welcome * Logs user input * Answers in array format to allow variance * Supports multiple answers * Works with NodeJS no browser tests done ## In the works * Custom looks using chalk * Animations * Better comments * etc.",
   "main": "trivia.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
