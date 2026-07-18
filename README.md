@@ -1,34 +1,38 @@
 # CLI Trivia
 
-A simple CLI trivia game for a certain lab.
+A simple CLI trivia game. With 2 Versions.
 
-## Functions
+## Versions
+
+Versions get their own branches.
+
+#### v0.1 Multi-answer
+- Hard-coded questions via Json.
+- Supports multiple answers to one question using a any/all answer matching filter.
+- Answers are manually typed and normalized.
+- Multiple answers are split by commas.
+
+#### v0.2 Multiple choice 
+- A user inputs the number corresponding to the correct answer.
+- Dynamic questions and answers imported via API.
+- Does not have the multi-answer logic (could not make it work with APIs).
+
+## Features
 
 - Asks for your name
 - Gives you a welcome
 - Logs user input
-- Answers to multiple-answer questions can be split by commas allow variance
-- Supports multiple-answer questions
-- Works with NodeJS no browser tests done
-- Easy question implementation found in./src/questions.json, since it is json then no need for JS knowledge
-
-## Changes from Origin
-
-- removed the async question function
-- made a loop in the startgame function
-- cleaned up answer logic
-- introduced a match type for answer checking
 - modularized the codebase for scalability
 
 ## In the works
 
-- Multiple-choice questions yet to be implimented
 - Custom looks using chalk
 - Animations using chalk-animation and more
 - Better comments
 - etc.
 
-## Questions follow this format
+## Questions follow this format 
+##### This is only relevant for v0.1
 
 {
 "question": "What keyword declares a variable in java?",
