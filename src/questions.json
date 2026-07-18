@@ -1,17 +1,24 @@
 [
   {
-    "question": "What keyword declares a variable in java?",
-    "answer": ["let"],
-    "match": "all"
-  },
-  {
-    "question": "what two operators are represented by the following syntax (...)?",
-    "answer": ["rest", "spread"],
-    "match": "all"
-  },
-  {
-    "question": "what is 1+1",
-    "answer": ["2", "two", "II"],
+    "question": "What is the capital of France?",
+    "choices": [
+      "Berlin",
+      "Madrid",
+      "Paris",
+      "Rome"
+    ],
+    "answer": [3],
     "match": "any"
+  },
+  {
+    "question": "Which are programming languages?",
+    "choices": [
+      "JavaScript",
+      "HTML",
+      "Python",
+      "CSS"
+    ],
+    "answer": [1, 3],
+    "match": "all"
   }
 ]

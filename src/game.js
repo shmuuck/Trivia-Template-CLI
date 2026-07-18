@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 import * as readline from "node:readline/promises";
-import questions from "./questions.json" with { type: "json" };
+import he from "he";
+import { Fetching } from "./api.js";
+import { shuffle } from "./utils.js";
+
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -9,12 +12,15 @@ const rl = readline.createInterface({
 });
 
 // Game data
+let questions = [];
 let currentQuestion = 0;
 let score = 0;
 let userName;
 
 // Game start
 export async function startGame() {
+  questions = await Fetching(5);
+
   userName = await rl.question(`Enter Name: `);
 
   console.log(`\nWelcome, ${userName}\n`);
@@ -23,53 +29,37 @@ export async function startGame() {
 
   console.log("You have a limited amount of time to complete each question\n");
 
-  while (currentQuestion < questions.length) {
-    const question = questions[currentQuestion];
-
-    console.log(`question ${currentQuestion + 1}: ${question.question}`);
-
-    const userAnswer = await rl.question("Your Answer: ");
-
-    checkAnswer(userAnswer);
-
-    currentQuestion++;
-  }
-
-  endGame();
-}
-
-// Answer check
-function checkAnswer(userAnswer) {
+while (currentQuestion < questions.length) {
   const question = questions[currentQuestion];
 
-  const userAnswers = userAnswer
-    .toLowerCase()
-    .split(",")
-    .map((answer) => answer.trim());
+  const options = shuffle([
+    question.correct_answer,
+    ...question.incorrect_answers,
+  ]);
 
-  const correctAnswers = question.answer.map((answer) =>
-    answer.toLowerCase().trim(),
+  console.log(
+    `Question ${currentQuestion + 1}: ${he.decode(question.question)}`
   );
 
-  let isCorrect;
+  options.forEach((option, index) => {
+    console.log(`${index + 1}. ${he.decode(option)}`);
+  });
 
-  if (question.match === "any") {
-    isCorrect = correctAnswers.some((answer) => userAnswers.includes(answer));
-  } else if (question.match === "all") {
-    isCorrect = correctAnswers.every((answer) => userAnswers.includes(answer));
-  } else {
-    console.error(`Match not given: ${question.match}`);
-    return;
-  }
+  const answer = Number(await rl.question("Your Answer: "));
 
-  if (isCorrect) {
+  if (options[answer - 1] === question.correct_answer) {
     console.log("Correct!\n");
     score++;
   } else {
     console.log(
-      `Wrong! The correct answer was: ${question.answer.join(", ")}\n`,
+      `Wrong! The answer was ${he.decode(question.correct_answer)}\n`
     );
   }
+
+  currentQuestion++;
+}
+
+  endGame();
 }
 
 // results
