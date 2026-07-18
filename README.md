@@ -1,18 +1,18 @@
 # CLI Trivia
 
-A simple CLI trivia game. With 2 Versions.
+A simple CLI trivia game. With 2 Versions. Needs both git and npm already on your machine.
 
 ## Versions
 
 Versions get their own branches.
 
-#### v0.1 Multi-answer
+#### v0.1 Multi-answer(main)
 - Hard-coded questions via Json.
 - Supports multiple answers to one question using a any/all answer matching filter.
 - Answers are manually typed and normalized.
 - Multiple answers are split by commas.
 
-#### v0.2 Multiple choice 
+#### v0.2 Multiple-choice(Recommended version) 
 - A user inputs the number corresponding to the correct answer.
 - Dynamic questions and answers imported via OpenTDB API.
 - Does not have the multi-answer logic (could not make it work with APIs).
