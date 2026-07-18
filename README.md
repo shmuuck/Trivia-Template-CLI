@@ -14,7 +14,7 @@ Versions get their own branches.
 
 #### v0.2 Multiple choice 
 - A user inputs the number corresponding to the correct answer.
-- Dynamic questions and answers imported via API.
+- Dynamic questions and answers imported via OpenTDB API.
 - Does not have the multi-answer logic (could not make it work with APIs).
 
 ## Features
